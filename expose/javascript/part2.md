@@ -134,3 +134,75 @@ let student = {
    ```js
    student.courseLoad[0]
    ```
+---
+
+## Q13. Arithmetic & Type Conversion
+
+For each expression, the output and why it occurs:
+
+1. **`'3' + 2`**  
+   **Output:** `'32'`  
+   **Explanation:** The `+` with a string triggers string concatenation, so `2` is converted to `'2'` and joined to `'3'`.
+
+2. **`'3' - 2`**  
+   **Output:** `1`  
+   **Explanation:** The `-` operator forces both operands to numbers, so `'3'`→`3`, then `3 - 2 = 1`.
+
+3. **`3 + null`**  
+   **Output:** `3`  
+   **Explanation:** `null` converts to `0`, so `3 + 0 = 3`.
+
+4. **`'3' + null`**  
+   **Output:** `'3null'`  
+   **Explanation:** The presence of a string with `+` makes everything a string: `null`→`'null'`, concatenated to `'3'`.
+
+5. **`true + 3`**  
+   **Output:** `4`  
+   **Explanation:** `true` converts to `1`, so `1 + 3 = 4`.
+
+6. **`false + null`**  
+   **Output:** `0`  
+   **Explanation:** `false`→`0`, `null`→`0`, so `0 + 0 = 0`.
+
+7. **`'3' + undefined`**  
+   **Output:** `'3undefined'`  
+   **Explanation:** With `+` and a string, `undefined`→`'undefined'`, concatenated to `'3'`.
+
+8. **`'3' - undefined`**  
+   **Output:** `NaN`  
+   **Explanation:** `-` forces numeric conversion: `'3'`→`3`, `undefined`→`NaN`, so `3 - NaN = NaN`.
+
+---
+
+## Q14. Comparisons
+
+1. **`'2' > 1`**  
+   **Output:** `true`  
+   **Explanation:** `'2'`→`2`, and `2 > 1` is `true`.
+
+2. **`'2' < '12'`**  
+   **Output:** `false`  
+   **Explanation:** Both are strings, so lexicographical compare: `'2'` > `'1'`, thus `'2' < '12'` is `false`.
+
+3. **`2 == '2'`**  
+   **Output:** `true`  
+   **Explanation:** Loose equality (`==`) coerces `'2'`→`2`, so `2 == 2`.
+
+4. **`2 === '2'`**  
+   **Output:** `false`  
+   **Explanation:** Strict equality (`===`) does not coerce types, and number `2` ≠ string `'2'`.
+
+5. **`true == 2`**  
+   **Output:** `false`  
+   **Explanation:** `true`→`1`, so `1 == 2` is `false`.
+
+6. **`true === Boolean(2)`**  
+   **Output:** `true`  
+   **Explanation:** `Boolean(2)`→`true`, so both sides are boolean `true` and strictly equal.
+
+---
+
+## Q15. Difference between `==` and `===`
+
+- **`==` (loose equality)** converts operands to the same type before comparison.
+- **`===` (strict equality)** requires both value and type to match exactly, with no coercion.
