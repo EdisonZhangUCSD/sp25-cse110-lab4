@@ -206,3 +206,66 @@ For each expression, the output and why it occurs:
 
 - **`==` (loose equality)** converts operands to the same type before comparison.
 - **`===` (strict equality)** requires both value and type to match exactly, with no coercion.
+
+---
+
+## Q17. Callback Functions
+
+```js
+// part2-question17.js
+function modifyArray(array, callback) {
+  const newArr = [];
+  for (let i = 0; i < array.length; i++) {
+    newArr.push(callback(array[i]));
+  }
+  return newArr;
+}
+
+function doSomething(num) {
+  return num * 2;
+}
+
+// Running:
+console.log(modifyArray([1, 2, 3], doSomething));
+// → [2, 4, 6]
+
+```
+Return Value:
+[2, 4, 6]
+
+Explanation:
+modifyArray iterates through each element in the input array and applies the callback function (doSomething) to it. Since doSomething(num) returns num * 2, each original element (1, 2, 3) is doubled, producing the new array [2, 4, 6].
+
+---
+
+## Q19. Event-loop Ordering
+
+```js
+function printNums() {
+  console.log(1);
+  setTimeout(function() { console.log(2); }, 1000);
+  setTimeout(function() { console.log(3); }, 0);
+  console.log(4);
+}
+
+printNums();
+```
+
+Output Order:
+1
+4
+3
+2
+
+Explanation:
+
+1 logs immediately.
+
+The setTimeout(..., 0) callback (3) is queued and runs only after the current call stack completes.
+
+4 logs before either callback.
+
+The zero-delay callback logs 3.
+
+After 1000 ms, the second callback logs 2.
+
