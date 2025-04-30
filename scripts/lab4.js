@@ -6,12 +6,14 @@
  * @returns The sum of the two numbers if add is true, or false otherwise.
  */
 function sumValues(num1, num2, add) {
+    // Validate types first
+    if (typeof num1 !== 'number' || typeof num2 !== 'number' || typeof add !== 'boolean') {
+        return false;
+    }
+
     if (add) {
-        // use let so we can assign below
-        let result = num1 + num2;
-        return result;
+        return num1 + num2;
     } else {
-        // tests expect exactly false when add is false
         return false;
     }
 }
@@ -20,18 +22,17 @@ function sumValues(num1, num2, add) {
  * 
  * @param {*} prices, an array of the original price.
  * @param {*} discount, a number between 0–1 to represent the discount. 
- * @returns An array of each price’s new price, after the discount is applied, rounded 
- * to two decimals; or false if prices array is empty.
+ * @returns An array of each price’s new price, after the discount is applied and rounded 
+ * to two decimals; or false if prices is empty or not an array.
  */
 function discountPrices(prices, discount) {
-    if (!Array.isArray(prices) || prices.length === 0) {
+    if (!Array.isArray(prices) || prices.length === 0 || typeof discount !== 'number') {
         return false;
     }
 
     const discounted = [];
 
     for (let i = 0; i < prices.length; i++) {
-        // compute each independently (not cumulative)
         const newPrice = Math.round(prices[i] * (1 - discount) * 100) / 100;
         discounted.push(newPrice);
     }
