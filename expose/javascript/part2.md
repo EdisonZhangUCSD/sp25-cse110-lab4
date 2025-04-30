@@ -90,3 +90,47 @@ ReferenceError: i is not defined
 [50, 100, 150]
 **Explanation:**  
 The function loops over the three prices, computes each discounted price (`100→50`, `200→100`, `300→150`), pushes them into the `discounted` array, and then returns that array. The commented-out console.logs don’t affect the return.
+
+
+## Q12. JavaScript Object Property Access
+
+Given the object:
+
+```js
+let student = {
+  name: 'Sarah',
+  major: 'Computer Science',
+  'Grad Year': '2022',
+  greeting: function() { console.log('Hello!'); },
+  'Favorite Teacher': {
+    name: 'Thomas Powell',
+    course: 'CSE 110'
+  },
+  courseLoad: ['CSE 110', 'CSE 134', 'VIS 41']
+};
+```
+
+1. **Access the `name` property in `student`**  
+   ```js
+   student.name
+   ```
+
+2. **Access the `Grad Year` property in `student`**  
+   ```js
+   student['Grad Year']
+   ```
+
+3. **Call the `greeting` method in `student`**  
+   ```js
+   student.greeting();
+   ```
+
+4. **Access the `name` of the favorite teacher**  
+   ```js
+   student['Favorite Teacher'].name
+   ```
+
+5. **Access the first course in the `courseLoad` array**  
+   ```js
+   student.courseLoad[0]
+   ```
